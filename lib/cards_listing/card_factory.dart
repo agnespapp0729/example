@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'card.dart';
+import '../model/card.dart';
 
 class CardFactory extends StatelessWidget {
   const CardFactory({

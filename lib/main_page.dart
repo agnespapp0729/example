@@ -1,6 +1,7 @@
-import 'package:example/cards/list_page.dart';
+import 'package:example/cards_listing/list_page.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+import 'users_listing/list_from_api.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -53,6 +54,18 @@ class _MainPageState extends State<MainPage> {
                 );
               },
               child: Text('Go to list page'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.purpleAccent),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UserList()),
+                );
+              },
+              child: Text('Go to list_from_api page'),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.purpleAccent),
               ),
