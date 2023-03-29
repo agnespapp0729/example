@@ -35,7 +35,8 @@ class _UserListState extends State<UserList> {
     return Scaffold(
       appBar: AppBar(
         title: Text("User's data"),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.yellow,
+        foregroundColor: Colors.black,
       ),
       body: FutureBuilder<List<GetUserFromJson>>(
         future: fetchData(),

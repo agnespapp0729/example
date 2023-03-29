@@ -27,9 +27,27 @@ class _CardListState extends State<CardList> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Awesome quotes"),
+        backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => CardFactory(quote: quote)).toList(),
+        children: [
+          Column(
+            children: quotes.map((quote) => CardFactory(quote: quote)).toList(),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: ElevatedButton.icon(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              label: Text("Go back"),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.red),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

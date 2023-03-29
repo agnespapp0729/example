@@ -67,7 +67,8 @@ class _MainPageState extends State<MainPage> {
               },
               child: Text('Go to list_from_api page'),
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.purpleAccent),
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.deepOrangeAccent),
               ),
             ),
           ],
