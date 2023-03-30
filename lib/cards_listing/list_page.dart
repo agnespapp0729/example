@@ -25,6 +25,7 @@ class _CardListState extends State<CardList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.pink[100],
       appBar: AppBar(
         title: Text("Awesome quotes"),
         backgroundColor: Colors.redAccent,
@@ -35,7 +36,7 @@ class _CardListState extends State<CardList> {
             children: quotes.map((quote) => CardFactory(quote: quote)).toList(),
           ),
           Align(
-            alignment: Alignment.topLeft,
+            alignment: Alignment.bottomLeft,
             child: ElevatedButton.icon(
               icon: Icon(Icons.arrow_back),
               onPressed: () {
