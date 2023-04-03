@@ -32,6 +32,7 @@ class _StaggerDemoState extends State<StaggerDemo>
     timeDilation = 10.0;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
         title: const Text('Staggered Animation'),
       ),
       body: GestureDetector(
