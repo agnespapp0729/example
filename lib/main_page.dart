@@ -1,3 +1,4 @@
+import 'package:example/animation/stagger_demo.dart';
 import 'package:example/cards_listing/list_page.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
@@ -66,6 +67,19 @@ class _MainPageState extends State<MainPage> {
                 );
               },
               child: Text('Go to list_from_api page'),
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.deepOrangeAccent),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StaggerDemo()),
+                );
+              },
+              child: Text('See the animation'),
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all(Colors.deepOrangeAccent),
