@@ -1,3 +1,5 @@
+import 'package:example/counter_provider/counter_A.dart';
+import 'package:example/counter_provider/counter_B.dart';
 import 'package:flutter/material.dart';
 import 'main_page.dart';
 
