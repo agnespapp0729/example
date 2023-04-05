@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class GetUserFromJson {
   int id;
   String name;

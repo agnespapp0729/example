@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class ColorChanger extends StatefulWidget {
   const ColorChanger({super.key});
@@ -17,7 +15,7 @@ class _ColorChangerState extends State<ColorChanger> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        title: Text('Change every color!'),
+        title: const Text('Change every color!'),
       ),
       body: Container(
         color: containerColor,
@@ -27,12 +25,12 @@ class _ColorChangerState extends State<ColorChanger> {
             children: [
               TextButton(
                 onPressed: () => setState(() => pressButton = !pressButton),
-                child: Text('Change my color'),
                 style: ButtonStyle(
                   backgroundColor: pressButton
                       ? MaterialStateProperty.all(Colors.black)
                       : MaterialStateProperty.all(Colors.pink),
                 ),
+                child: const Text('Change my color'),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -40,10 +38,10 @@ class _ColorChangerState extends State<ColorChanger> {
                     containerColor = Colors.yellow;
                   });
                 },
-                child: Text('Change page color'),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.amber),
                 ),
+                child: const Text('Change page color'),
               ),
             ],
           ),

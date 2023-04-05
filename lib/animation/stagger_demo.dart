@@ -1,9 +1,10 @@
 import 'package:example/animation/stagger_animation.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class StaggerDemo extends StatefulWidget {
+  const StaggerDemo({super.key});
+
   @override
   _StaggerDemoState createState() => _StaggerDemoState();
 }

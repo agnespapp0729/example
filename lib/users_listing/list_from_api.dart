@@ -34,15 +34,16 @@ class _UserListState extends State<UserList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("User's data"),
+        title: const Text("User's data"),
         backgroundColor: Colors.yellow,
         foregroundColor: Colors.black,
       ),
       body: FutureBuilder<List<GetUserFromJson>>(
         future: fetchData(),
         builder: (context, snapshot) {
-          if (!snapshot.hasData)
-            return Center(child: CircularProgressIndicator());
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
           return ListView(
             children: snapshot.data!
@@ -56,7 +57,8 @@ class _UserListState extends State<UserList> {
                         backgroundColor: Colors.amberAccent,
                         child: Text(
                           user.name[0],
-                          style: TextStyle(color: Colors.black, fontSize: 20.0),
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 20.0),
                         ),
                       ),
                     ))

@@ -1,6 +1,4 @@
 import 'package:example/home_page.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import 'package:flutter/material.dart';
 
@@ -20,12 +18,12 @@ class _LoginStateState extends State<LoginState> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Log in'),
+        title: const Text('Log in'),
       ),
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -33,7 +31,7 @@ class _LoginStateState extends State<LoginState> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                     controller: emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Email",
                     ),
@@ -49,7 +47,7 @@ class _LoginStateState extends State<LoginState> {
                 child: TextFormField(
                     controller: passwordController,
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Password",
                     ),
@@ -67,7 +65,8 @@ class _LoginStateState extends State<LoginState> {
                         passwordController.text == "alma") {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()),
                       );
                     }
                   } else {

@@ -27,7 +27,7 @@ class _CardListState extends State<CardList> {
     return Scaffold(
       backgroundColor: Colors.pink[100],
       appBar: AppBar(
-        title: Text("Awesome quotes"),
+        title: const Text("Awesome quotes"),
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
@@ -38,11 +38,11 @@ class _CardListState extends State<CardList> {
           Align(
             alignment: Alignment.bottomLeft,
             child: ElevatedButton.icon(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 Navigator.pop(context);
               },
-              label: Text("Go back"),
+              label: const Text("Go back"),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.red),
               ),

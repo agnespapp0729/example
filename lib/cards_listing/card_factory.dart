@@ -15,19 +15,19 @@ class CardFactory extends StatelessWidget {
     return Card(
       color: Colors.black,
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Text(
               quote.text,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.amber,
               ),
             ),
-            SizedBox(height: 6.0),
+            const SizedBox(height: 6.0),
             Text(
               quote.author,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.orange,
               ),
             ),
