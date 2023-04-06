@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../model/card.dart';
+import '../model/quote.dart';
 
 class CardFactory extends StatelessWidget {
   const CardFactory({

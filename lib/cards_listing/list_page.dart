@@ -1,6 +1,6 @@
 import 'package:example/cards_listing/card_factory.dart';
 import 'package:flutter/material.dart';
-import '../model/card.dart';
+import '../model/quote.dart';
 
 class CardList extends StatefulWidget {
   const CardList({super.key});

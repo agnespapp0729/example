@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart' show timeDilation;
 
 class StaggerAnimation extends StatelessWidget {
   StaggerAnimation({super.key, required this.controller})

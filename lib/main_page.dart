@@ -1,7 +1,7 @@
 import 'package:example/animation/stagger_demo.dart';
 import 'package:example/cards_listing/list_page.dart';
 import 'package:example/color_changes/color_changer.dart';
-import 'package:example/counter_provider/change_notifier.dart';
+import 'package:example/counter_provider/counter_notifier.dart';
 import 'package:example/counter_provider/counter_a_page.dart';
 import 'package:example/counter_provider/counter_b_page.dart';
 import 'package:flutter/material.dart';
