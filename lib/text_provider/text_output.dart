@@ -1,4 +1,6 @@
+import 'package:example/text_provider/text_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TextOutput extends StatefulWidget {
   const TextOutput({super.key});
@@ -10,13 +12,23 @@ class TextOutput extends StatefulWidget {
 class _TextInputState extends State<TextOutput> {
   @override
   Widget build(BuildContext context) {
+    final textProvider = Provider.of<TextProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Type a word!'),
+        title: const Text("Show output"),
       ),
-      body: Center(
-        child: Column(
-          children: [],
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Name: ${textProvider.name}",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );

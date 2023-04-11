@@ -1,9 +1,11 @@
 import 'package:example/animation/stagger_demo.dart';
 import 'package:example/cards_listing/list_page.dart';
 import 'package:example/color_changes/color_changer.dart';
-import 'package:example/counter_provider/counter_notifier.dart';
+import 'package:example/counter_provider/counter_provider.dart';
 import 'package:example/counter_provider/counter_a_page.dart';
 import 'package:example/counter_provider/counter_b_page.dart';
+import 'package:example/text_provider/text_input.dart';
+import 'package:example/text_provider/text_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'users_listing/list_from_api.dart';
@@ -17,9 +19,15 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late MyCounter myCounterProvider;
+  late TextProvider textProvider;
   @override
   void dispose() {
     myCounterProvider.dispose();
+    super.dispose();
+  }
+
+  void disposeTextProvider() {
+    textProvider.dispose();
     super.dispose();
   }
 
@@ -105,6 +113,17 @@ class _MainPageState extends State<MainPage> {
                         value: myCounterProvider,
                         builder: (context, child) => const CounterA(),
                       ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Enter your name'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TextInput(),
                     ),
                   );
                 },
