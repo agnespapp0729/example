@@ -5,7 +5,7 @@ import 'package:example/counter_provider/counter_provider.dart';
 import 'package:example/counter_provider/counter_a_page.dart';
 import 'package:example/counter_provider/counter_b_page.dart';
 import 'package:example/text_provider/text_input.dart';
-import 'package:example/text_provider/text_provider.dart';
+import 'package:example/todo_list/todo_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'users_listing/list_from_api.dart';
@@ -119,6 +119,17 @@ class _MainPageState extends State<MainPage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const TextInput(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Make a todo list!'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TodoList(),
                     ),
                   );
                 },
