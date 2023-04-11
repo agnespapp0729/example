@@ -19,15 +19,10 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late MyCounter myCounterProvider;
-  late TextProvider textProvider;
+
   @override
   void dispose() {
     myCounterProvider.dispose();
-    super.dispose();
-  }
-
-  void disposeTextProvider() {
-    textProvider.dispose();
     super.dispose();
   }
 
