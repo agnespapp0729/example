@@ -50,6 +50,7 @@ class _UserListState extends State<UserList> {
                 .map((user) => ListTile(
                       title: Text(user.name),
                       onTap: () {
+                        // ignore: avoid_print
                         print(user.name);
                       },
                       subtitle: Text(user.phoneNumber),

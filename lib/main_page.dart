@@ -5,6 +5,7 @@ import 'package:example/counter_provider/counter_provider.dart';
 import 'package:example/counter_provider/counter_a_page.dart';
 import 'package:example/counter_provider/counter_b_page.dart';
 import 'package:example/text_provider/text_input.dart';
+import 'package:example/text_provider/text_provider.dart';
 import 'package:example/todo_list/todo_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late MyCounter myCounterProvider;
+  late TextProvider textProvider;
 
   @override
   void dispose() {
@@ -26,118 +28,128 @@ class _MainPageState extends State<MainPage> {
     super.dispose();
   }
 
+  void Textdispose() {
+    textProvider.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => MyCounter(),
-      builder: (context, _) {
-        myCounterProvider = Provider.of<MyCounter>(context);
+        create: (context) => MyCounter(),
+        builder: (context, _) {
+          myCounterProvider = Provider.of<MyCounter>(context);
 
-        return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.deepPurple,
-            title: const Text('Flutter ListView Navigation I'),
-          ),
-          body: ListView(
-            children: [
-              ListTile(
-                title: const Text('Card list'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CardList(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('User listing from api'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const UserList(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animation'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const StaggerDemo(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Change colors!'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ColorChanger(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Increase counter'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ChangeNotifierProvider.value(
-                        value: myCounterProvider,
-                        builder: (context, child) => const CounterB(),
+          /*return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<MyCounter>(create: (_) => MyCounter()),
+        ChangeNotifierProvider<TextProvider>(create: (_) => TextProvider()),
+      ],
+      child:*/
+          return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.deepPurple,
+              title: const Text('Flutter ListView Navigation I'),
+            ),
+            body: ListView(
+              children: [
+                ListTile(
+                  title: const Text('Card list'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CardList(),
                       ),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Decrease counter'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ChangeNotifierProvider.value(
-                        value: myCounterProvider,
-                        builder: (context, child) => const CounterA(),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('User listing from api'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UserList(),
                       ),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Enter your name'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const TextInput(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Make a todo list!'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const TodoList(),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Animation'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const StaggerDemo(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Change colors!'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ColorChanger(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Increase counter'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChangeNotifierProvider.value(
+                          value: myCounterProvider,
+                          builder: (context, child) => const CounterB(),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Decrease counter'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChangeNotifierProvider.value(
+                          value: myCounterProvider,
+                          builder: (context, child) => const CounterA(),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Enter your name'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TextInput(),
+                      ),
+                    );
+                  },
+                ),
+                ListTile(
+                  title: const Text('Make a todo list!'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TodoList(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          );
+        });
   }
 }
