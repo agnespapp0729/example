@@ -29,6 +29,7 @@ class _MainPageState extends State<MainPage> {
     super.dispose();
   }
 
+  @override
   void initState() {
     myCounterProvider = MyCounter();
     textProvider = TextProvider();
