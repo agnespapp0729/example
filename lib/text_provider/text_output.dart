@@ -1,9 +1,6 @@
 import 'package:example/text_provider/text_provider.dart';
-import 'package:example/text_provider/text_input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'text_provider.dart';
 
 class TextOutput extends StatefulWidget {
   const TextOutput({super.key});
