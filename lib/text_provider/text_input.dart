@@ -11,11 +11,17 @@ class TextInput extends StatefulWidget {
 }
 
 class _TextInputState extends State<TextInput> {
-  String name = "";
   final TextEditingController _textEditingController = TextEditingController();
+
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final TextProvider textProvider = Provider.of<TextProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Get a name"),
@@ -33,26 +39,25 @@ class _TextInputState extends State<TextInput> {
                 controller: _textEditingController,
                 onSubmitted: (value) {
                   setState(() {
-                    name = value;
+                    textProvider.saveName(_textEditingController.text);
                   });
                 },
                 onChanged: (value) {
                   setState(() {
-                    name = value;
+                    textProvider.saveName(_textEditingController.text);
                   });
                 },
               ),
               TextButton(
-                onPressed: () {
-                  Provider.of<TextProvider>(context, listen: false)
-                      .saveName(_textEditingController.text);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const TextOutput(),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangeNotifierProvider.value(
+                      value: textProvider,
+                      builder: (context, child) => const TextOutput(),
                     ),
-                  );
-                },
+                  ),
+                ),
                 child: const Text("See the output"),
               ),
             ],

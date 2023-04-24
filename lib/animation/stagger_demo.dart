@@ -6,8 +6,7 @@ class StaggerDemo extends StatefulWidget {
   const StaggerDemo({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _StaggerDemoState createState() => _StaggerDemoState();
+  State<StaggerDemo> createState() => _StaggerDemoState();
 }
 
 class _StaggerDemoState extends State<StaggerDemo>

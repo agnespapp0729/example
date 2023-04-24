@@ -12,7 +12,7 @@ class MyCounter with ChangeNotifier {
   }
 
   void decrementCounter() {
-    _counter++;
+    _counter--;
     notifyListeners();
   }
 }

@@ -25,131 +25,136 @@ class _MainPageState extends State<MainPage> {
   @override
   void dispose() {
     myCounterProvider.dispose();
-    super.dispose();
-  }
-
-  void Textdispose() {
     textProvider.dispose();
     super.dispose();
   }
 
+  void initState() {
+    myCounterProvider = MyCounter();
+    textProvider = TextProvider();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => MyCounter(),
-        builder: (context, _) {
-          myCounterProvider = Provider.of<MyCounter>(context);
-
-          /*return MultiProvider(
+    return MultiProvider(
       providers: [
-        ChangeNotifierProvider<MyCounter>(create: (_) => MyCounter()),
-        ChangeNotifierProvider<TextProvider>(create: (_) => TextProvider()),
+        ChangeNotifierProvider<MyCounter>(create: (_) {
+          myCounterProvider = MyCounter();
+          return myCounterProvider;
+        }),
+        ChangeNotifierProvider<TextProvider>(create: (_) {
+          textProvider = TextProvider();
+          return textProvider;
+        }),
       ],
-      child:*/
-          return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.deepPurple,
-              title: const Text('Flutter ListView Navigation I'),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
+          title: const Text('Flutter ListView Navigation I'),
+        ),
+        body: ListView(
+          children: [
+            ListTile(
+              title: const Text('Card list'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CardList(),
+                  ),
+                );
+              },
             ),
-            body: ListView(
-              children: [
-                ListTile(
-                  title: const Text('Card list'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CardList(),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('User listing from api'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const UserList(),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Animation'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const StaggerDemo(),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Change colors!'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ColorChanger(),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Increase counter'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider.value(
-                          value: myCounterProvider,
-                          builder: (context, child) => const CounterB(),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Decrease counter'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ChangeNotifierProvider.value(
-                          value: myCounterProvider,
-                          builder: (context, child) => const CounterA(),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Enter your name'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TextInput(),
-                      ),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Make a todo list!'),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TodoList(),
-                      ),
-                    );
-                  },
-                ),
-              ],
+            ListTile(
+              title: const Text('User listing from api'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UserList(),
+                  ),
+                );
+              },
             ),
-          );
-        });
+            ListTile(
+              title: const Text('Animation'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const StaggerDemo(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Change colors!'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ColorChanger(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Increase counter'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangeNotifierProvider.value(
+                      value: myCounterProvider,
+                      builder: (context, child) => const CounterB(),
+                    ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Decrease counter'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangeNotifierProvider.value(
+                      value: myCounterProvider,
+                      builder: (context, child) => const CounterA(),
+                    ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Enter your name'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangeNotifierProvider.value(
+                      value: textProvider,
+                      builder: (context, child) => const TextInput(),
+                    ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Make a todo list!'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TodoList(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
