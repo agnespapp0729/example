@@ -2,17 +2,12 @@ import 'package:example/text_provider/text_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class TextOutput extends StatefulWidget {
+class TextOutput extends StatelessWidget {
   const TextOutput({super.key});
 
   @override
-  State<TextOutput> createState() => _TextOutputState();
-}
-
-class _TextOutputState extends State<TextOutput> {
-  @override
   Widget build(BuildContext context) {
-    final textProvider = Provider.of<TextProvider>(context);
+    final TextProvider textProvider = Provider.of<TextProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
