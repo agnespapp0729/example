@@ -4,11 +4,13 @@ import 'package:example/color_changes/color_changer.dart';
 import 'package:example/counter_provider/counter_provider.dart';
 import 'package:example/counter_provider/counter_a_page.dart';
 import 'package:example/counter_provider/counter_b_page.dart';
+import 'package:example/read_and_write_txt/read_write.dart';
 import 'package:example/text_provider/text_input.dart';
 import 'package:example/text_provider/text_provider.dart';
 import 'package:example/todo_list/todo_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'get_image_size/image_size.dart';
 import 'users_listing/list_from_api.dart';
 
 class MainPage extends StatefulWidget {
@@ -149,6 +151,28 @@ class _MainPageState extends State<MainPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const TodoList(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text("Get an image's size"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ImageSize(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text("Save a text to a txt"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ReadAndWrite(),
                   ),
                 );
               },
