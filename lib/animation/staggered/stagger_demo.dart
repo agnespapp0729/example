@@ -1,4 +1,4 @@
-import 'package:example/animation/stagger_animation.dart';
+import 'package:example/animation/staggered/stagger_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 

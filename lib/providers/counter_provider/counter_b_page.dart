@@ -1,4 +1,4 @@
-import 'package:example/counter_provider/counter_provider.dart';
+import 'package:example/providers/counter_provider/counter_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

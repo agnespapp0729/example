@@ -1,4 +1,4 @@
-import 'package:example/text_provider/text_provider.dart';
+import 'package:example/providers/text_provider/text_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

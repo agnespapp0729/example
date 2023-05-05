@@ -1,12 +1,13 @@
-import 'package:example/animation/stagger_demo.dart';
+import 'package:example/animation/rotating/animation_home.dart';
+import 'package:example/animation/staggered/stagger_demo.dart';
 import 'package:example/cards_listing/list_page.dart';
 import 'package:example/color_changes/color_changer.dart';
-import 'package:example/counter_provider/counter_provider.dart';
-import 'package:example/counter_provider/counter_a_page.dart';
-import 'package:example/counter_provider/counter_b_page.dart';
+import 'package:example/providers/counter_provider/counter_provider.dart';
+import 'package:example/providers/counter_provider/counter_a_page.dart';
+import 'package:example/providers/counter_provider/counter_b_page.dart';
 import 'package:example/read_and_write_txt/read_write.dart';
-import 'package:example/text_provider/text_input.dart';
-import 'package:example/text_provider/text_provider.dart';
+import 'package:example/providers/text_provider/text_input.dart';
+import 'package:example/providers/text_provider/text_provider.dart';
 import 'package:example/todo_list/todo_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -173,6 +174,17 @@ class _MainPageState extends State<MainPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const ReadAndWrite(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Animation'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AnimationHome(),
                   ),
                 );
               },
