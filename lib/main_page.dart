@@ -8,6 +8,7 @@ import 'package:example/providers/counter_provider/counter_b_page.dart';
 import 'package:example/read_and_write_txt/read_write.dart';
 import 'package:example/providers/text_provider/text_input.dart';
 import 'package:example/providers/text_provider/text_provider.dart';
+import 'package:example/stream/crypto_stream.dart';
 import 'package:example/todo_list/todo_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -185,6 +186,17 @@ class _MainPageState extends State<MainPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const AnimationHome(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Show streamed user'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CryptoStream(),
                   ),
                 );
               },
