@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.cyan,
-        title: const Text('Go to the main page'),
+        title: const Text('Go see the list and choose!'),
       ),
       body: Center(
         child: Column(

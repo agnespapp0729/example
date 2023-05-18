@@ -4,7 +4,7 @@ class MyCounter with ChangeNotifier {
   int _counter = 0;
 
   getCounter() => _counter;
-  setCounter(int counter) => _counter = counter;
+  //setCounter(int counter) => _counter = counter;
 
   void incrementCounter() {
     _counter++;

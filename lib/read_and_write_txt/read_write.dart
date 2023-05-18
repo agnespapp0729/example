@@ -46,26 +46,28 @@ class _ReadAndWriteState extends State<ReadAndWrite> {
         backgroundColor: Colors.blueAccent,
         title: const Text('Display text'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            TextField(
-              controller: _textController,
-              decoration: const InputDecoration(labelText: 'Enter some text'),
-            ),
-            ElevatedButton(
-              onPressed: _writeData,
-              child: const Text('Save it to file'),
-            ),
-            const SizedBox(height: 150),
-            Text(_content ?? 'Press the button to see the text!',
-                style: const TextStyle(fontSize: 24)),
-            ElevatedButton(
-              onPressed: _readData,
-              child: const Text('Read from file'),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              TextField(
+                controller: _textController,
+                decoration: const InputDecoration(labelText: 'Enter some text'),
+              ),
+              ElevatedButton(
+                onPressed: _writeData,
+                child: const Text('Save it to file'),
+              ),
+              const SizedBox(height: 150),
+              Text(_content ?? 'Press the button to see the text!',
+                  style: const TextStyle(fontSize: 24)),
+              ElevatedButton(
+                onPressed: _readData,
+                child: const Text('Read from file'),
+              ),
+            ],
+          ),
         ),
       ),
     );

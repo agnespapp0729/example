@@ -20,8 +20,8 @@ class _CounterAState extends State<CounterA> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("You pushed the button this many times:"),
-            Text('${context.watch<MyCounter>().getCounter()}'),
+            const Text("You pushed the button"),
+            Text('${context.watch<MyCounter>().getCounter()} times'),
           ],
         ),
       ),

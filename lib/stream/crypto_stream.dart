@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:example/model/crypto_user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CryptoStream extends StatefulWidget {
   const CryptoStream({super.key});
@@ -14,7 +13,7 @@ class CryptoStream extends StatefulWidget {
 }
 
 class _CryptoStreamState extends State<CryptoStream> {
-  StreamController<CryptoUser> _streamController = StreamController();
+  final StreamController<CryptoUser> _streamController = StreamController();
 
   @override
   void dispose() {
@@ -27,7 +26,7 @@ class _CryptoStreamState extends State<CryptoStream> {
   void initState() {
     super.initState();
 
-    Timer.periodic(Duration(seconds: 3), (timer) {
+    Timer.periodic(const Duration(seconds: 3), (timer) {
       getCryptoData();
     });
   }
@@ -39,12 +38,12 @@ class _CryptoStreamState extends State<CryptoStream> {
     final response = await http.get(url);
     final databody = json.decode(response.body);
 
-    CryptoUser cryptoUser = new CryptoUser.fromJson(databody);
+    CryptoUser cryptoUser = CryptoUser.fromJson(databody);
 
     _streamController.sink.add(cryptoUser);
   }
 
-  Widget BuildCoinWidget(CryptoUser cryptoUser) {
+  Widget buildCoinWidget(CryptoUser cryptoUser) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -70,20 +69,23 @@ class _CryptoStreamState extends State<CryptoStream> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Streamed data from API'),
+      ),
       body: Center(
         child: StreamBuilder<CryptoUser>(
           stream: _streamController.stream,
           builder: (context, snapdata) {
             switch (snapdata.connectionState) {
               case ConnectionState.waiting:
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               default:
                 if (snapdata.hasError) {
-                  return Text('Please wait...');
+                  return const Text('Please wait...');
                 } else {
-                  return BuildCoinWidget(snapdata.data!);
+                  return buildCoinWidget(snapdata.data!);
                 }
             }
           },
