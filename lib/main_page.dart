@@ -2,6 +2,7 @@ import 'package:example/animation/rotating/animation_home.dart';
 import 'package:example/animation/staggered/stagger_demo.dart';
 import 'package:example/cards_listing/list_page.dart';
 import 'package:example/color_changes/color_changer.dart';
+import 'package:example/game/tic_tac.dart';
 import 'package:example/providers/counter_provider/counter_provider.dart';
 import 'package:example/providers/counter_provider/counter_a_page.dart';
 import 'package:example/providers/counter_provider/counter_b_page.dart';
@@ -56,7 +57,7 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,
-          title: const Text('Flutter ListView Navigation I'),
+          title: const Text('Choose a page!'),
         ),
         body: ListView(
           children: [
@@ -197,6 +198,17 @@ class _MainPageState extends State<MainPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const CryptoStream(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Play a game!'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TicTac(),
                   ),
                 );
               },
