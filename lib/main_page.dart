@@ -10,6 +10,7 @@ import 'package:example/read_and_write_txt/read_write.dart';
 import 'package:example/providers/text_provider/text_input.dart';
 import 'package:example/providers/text_provider/text_provider.dart';
 import 'package:example/stream/crypto_stream.dart';
+import 'package:example/timer/view/timer_page.dart';
 import 'package:example/todo_list/todo_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -209,6 +210,17 @@ class _MainPageState extends State<MainPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const TicTac(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Set the timer!'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TimerPage(),
                   ),
                 );
               },
