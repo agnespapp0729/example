@@ -2,6 +2,7 @@ import 'package:example/animation/rotating/animation_home.dart';
 import 'package:example/animation/staggered/stagger_demo.dart';
 import 'package:example/cards_listing/list_page.dart';
 import 'package:example/color_changes/color_changer.dart';
+import 'package:example/hive_db/shopping_box.dart';
 import 'package:example/stream/number_screen.dart';
 import 'package:example/game/tic_tac.dart';
 import 'package:example/providers/counter_provider/counter_provider.dart';
@@ -11,7 +12,7 @@ import 'package:example/read_and_write_txt/read_write.dart';
 import 'package:example/providers/text_provider/text_input.dart';
 import 'package:example/providers/text_provider/text_provider.dart';
 import 'package:example/stream/crypto_stream.dart';
-//import 'package:example/timer/view/timer_page.dart';
+import 'package:example/timer/view/timer_page.dart';
 import 'package:example/todo_list/todo_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -238,7 +239,7 @@ class _MainPageState extends State<MainPage> {
                 );
               },
             ),
-            /*  ListTile(
+            ListTile(
               title: const Text('Set the timer!'),
               onTap: () {
                 Navigator.push(
@@ -248,7 +249,18 @@ class _MainPageState extends State<MainPage> {
                   ),
                 );
               },
-            ),*/
+            ),
+            ListTile(
+              title: const Text('See the database!'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ShoppingBox(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
