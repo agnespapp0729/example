@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
+//this class for hive is quite incomplete, the right solution is in the project named state_machine
 class ShoppingBox extends StatefulWidget {
   const ShoppingBox({super.key});
 
